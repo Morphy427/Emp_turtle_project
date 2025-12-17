@@ -8,6 +8,7 @@
 echo "Creation des répertoires utiles"
 mkdir -p genomes
 mkdir -p output
+mkdir -p logs
 
 # lancement de l'installation de l'environnement conda
 JOB_CONDA=$(sbatch --parsable scripts/0_utilities_scripts/conda_make_turtle.sh)
