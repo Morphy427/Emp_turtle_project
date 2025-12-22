@@ -3,10 +3,10 @@
 #SBATCH -o logs/supermatrix2.log
 
 
-inputFolder=../clean_output/iqtree/alignements_markers_with_name_gene
-outputFolder=../clean_output/concatenation
-outputFile=../clean_output/concatenation/supermatrix.fasta
-outputPartitions=../clean_output/concatenation/partitions.txt
+inputFolder=output/iqtree/alignements_markers_with_name_gene
+outputFolder=output/concatenation
+outputFile=$outputFolder/supermatrix.fasta
+outputPartitions=$outputFolder/partitions.txt
 
 mkdir -p $outputFolder
 
