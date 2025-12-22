@@ -38,6 +38,3 @@ echo "Alignement en attente avec l'ID :"$JOB_MAFFT
 JOB_TRIMAL=$(sbatch --parsable --dependency=afterok:$JOB_MAFFT scripts/4_Trimming/Trimal.sh)
 echo "Trimming en attente avec l'ID :"$JOB_TRIMAL
 
-# Lancement de la réconciliation
-JOB_GENERAX=$(sbatch --parsable --dependency=afterok:$JOB_TRIMAL scripts/5_Reconciliation/Reconciliation.sh)
-echo "Réconciliation en attente avec l'ID :"$JOB_GENERAX
