@@ -19,11 +19,15 @@ JOB_DOWNLOAD_SEQ=$(sbatch --parsable --dependency=afterok:$JOB_CONDA scripts/1_R
 echo "Téléchargement des données en attente avec l'ID :"$JOB_DOWNLOAD_SEQ
 
 # Script qui renome les fichier .fna en .fa pour orthofinder
-JOB_RENAME_FA=$(sbatch --parsable --dependency=afterok:$JOB_DOWNLOAD_SEQ scripts/0_utilities_scripts/renameSeq.sh)
+JOB_RENAME_FA=$(sbatch --parsable --dependency=afterok:$JOB_DOWNLOAD_SEQ scripts/0_utilities_scripts/renameExt.sh)
 echo "Changement des extensions en attente avec l'ID :"$JOB_RENAME_FA
 
+# Script qui renome les identifiants des séquences pour ajouter le nom d'espèce
+JOB_ADD_SPECIES_ID=$(sbatch --parsable --dependency=afterok:$JOB_RENAME_FA scripts/0_utilities_scripts/renameId.sh)
+echo "Ajout des identifiants en attente avec l'ID :"$JOB_ADD_SPECIES_ID
+
 # Script orthofinder
-JOB_ORTHOFINDER=$(sbatch --parsable --dependency=afterok:$JOB_RENAME_FA scripts/2_OrthoFinder/orthoFinder.sh)
+JOB_ORTHOFINDER=$(sbatch --parsable --dependency=afterok:$JOB_ADD_SPECIES_ID scripts/2_OrthoFinder/orthoFinder.sh)
 echo "Orthofinder en attente avec l'ID :"$JOB_ORTHOFINDER
 
 # Lancement script de récupération des groupes d'intérêts
