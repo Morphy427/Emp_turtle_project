@@ -35,6 +35,25 @@ JOB_MAFFT=$(sbatch --parsable --dependency=afterok:$JOB_ORTHOFINDER scripts/3_Al
 echo "Alignement en attente avec l'ID :"$JOB_MAFFT
 
 # Lancement du trimming des séquences
-JOB_TRIMAL=$(sbatch --parsable --dependency=afterok:$JOB_MAFFT scripts/4_Trimming/Trimal.sh)
+JOB_TRIMAL=$(sbatch --parsable --dependency=afterok:$JOB_MAFFT scripts/3_Alignement/Trimal.sh)
 echo "Trimming en attente avec l'ID :"$JOB_TRIMAL
 
+# Lancement du premier iqTree
+JOB_FIRST_IQTREE=$(sbatch --parsable --dependency=afterok:$JOB_TRIMAL scripts/4_Tree_analysis/runIqtree.sh)
+echo "Premier Iqtree en attente avec l'ID :"$JOB_FIRST_IQTREE
+
+# Lancement du calcul des scores RF
+JOB_RF_COMPUTE=$(sbatch --parsable --dependency=afterok:$JOB_FIRST_IQTREE scripts/4_Tree_analysis/runRfDistance.sh)
+echo "Calcul des scores RF en attente avec l'ID :"$JOB_RF_COMPUTE
+
+# Copie des arbres d'intérêt
+JOB_COPY_MAKER=$(sbatch --parsable --dependency=afterok:$JOB_RF_COMPUTE scripts/5_Concatenation/copyMaker.sh)
+echo "Copie des arbres d'intérêts en attente avec l'ID :"$JOB_COPY_MAKER
+
+# Création de la supermatrice
+JOB_SUPERMATRIX=$(sbatch --parsable --dependency=afterok:$JOB_COPY_MAKER scripts/5_Concatenation/createSupermatrix.sh)
+echo "Création de la supermatrice en attente avec l'ID :"$JOB_SUPERMATRIX
+
+# Lancement de l'iqtree final
+JOB_FINAL_IQTREE=$(sbatch --parsable --dependency=afterok:$JOB_SUPERMATRIX scripts/5_Concatenation/finalIqtree.sh)
+echo "Création de l'arbre final en attente avec l'ID :"$JOB_FINAL_IQTREE
