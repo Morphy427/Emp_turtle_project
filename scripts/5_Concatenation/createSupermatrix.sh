@@ -14,6 +14,6 @@ mkdir -p $outputFolder
 
 conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
 
-python 5_create_supermatrix.py $inputFolder $outputFile $outputPartitions
+python createSupermatrix.py $inputFolder $outputFile $outputPartitions
 
 conda deactivate

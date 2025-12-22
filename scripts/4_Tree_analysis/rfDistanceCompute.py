@@ -6,9 +6,9 @@ import os
 from ete3 import Tree
 
 
-reference_tree = "../clean_output/outputOF/Results_Dec19/Species_Tree/SpeciesTree_rooted.txt"
-gene_trees_dir = "../clean_output/iqtree/allTrees"
-output_file = "../clean_output/iqtree/rf_output/results_RF.tsv"
+reference_tree = "output/outputOf/Results*/Species_Tree/SpeciesTree_rooted.txt"
+gene_trees_dir = "output/iqtree/allTrees"
+output_file = "output/iqtree/rf_output/results_RF.tsv"
 
 
 ref_tree = Tree(reference_tree)

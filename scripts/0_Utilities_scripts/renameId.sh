@@ -6,8 +6,8 @@
 #Remodifie les nom des séquence fasta pour ne laisser que le nom de l'espèce
 
 
-INDIR=/projects/shared_tp_storage/tp_emp25_41033/truite/output/alignement_E/alignedSeq
-OUTDIR=/projects/shared_tp_storage/tp_emp25_41033/truite/output/alignement_E/rename_alignedSeq
+INDIR=genomes
+OUTDIR=output/rename_alignedSeq
 
 mkdir -p $OUTDIR
 

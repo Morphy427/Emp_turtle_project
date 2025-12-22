@@ -10,7 +10,7 @@
 conda activate ./turtleProject
 
 threads=$SLURM_JOB_CPUS_PER_NODE
-inputfolder=genomes
+inputfolder=output/rename_alignedSeq
 outputfolder=output/outputOf
 mkdir -p outputOf
 

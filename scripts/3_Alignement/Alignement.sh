@@ -7,20 +7,20 @@
 
 . /local/env/envconda.sh
 
-conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
+conda activate ./turtleProject
 
 
 threads=$SLURM_JOB_CPUS_PER_NODE
-listFile=output/alignement/listOfGroup.txt
+singleCopyFolder=output/outputOf/Results*/Single_Copy_Orthologue_Sequences
 outputFolder=output/alignement/alignedSeq
 mkdir -p $outputFolder
 
 echo "Début de l'alignement"
-while read filePath; do
+
+for filePath in $singleCopyFolder/*.fa; do
     ID=`basename $filePath .fa`
-    mafft --thread $threads --auto --anysymbol $filePath > ${outputFolder}/${ID}_mafft.fasta
-    echo $ID
-done < $listFile
+    mafft -T AUTO --auto --anysymbol $filePath > $outputFolder/${ID}_mafft.fasta
+done
 
 echo "Alignement effectué"
 
