@@ -11,7 +11,7 @@ OUTDIR=output/rename_alignedSeq
 
 mkdir -p $OUTDIR
 
-for f in "$INDIR"/*.fasta; do
+for f in "$INDIR"/*.fa; do
     awk '
     /^>/ {
         split($1, a, ">")

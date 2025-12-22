@@ -8,7 +8,7 @@
 
 for f in genomes/*.fna ; do
 	speciesID=`basename $f .fna`
-	mv $f $speciesID.fa
+	mv $f genomes/$speciesID.fa
 done
 
 echo "Extensions changées"

@@ -7,8 +7,9 @@
 
 . /local/env/envconda.sh
 
-conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
+conda activate ./turtleProject
 
+THREADS=$SLURM_CPUS_PER_TASK
 
 inputFolder=output/alignement/trimedSeq
 outputFolder=output/iqtree/

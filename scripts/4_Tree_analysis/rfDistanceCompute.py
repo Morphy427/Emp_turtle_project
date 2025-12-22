@@ -3,10 +3,12 @@
 #Calcule les score de Robinson foulds normalisé (RF/RF_max) et crée un fichier tsv contenant le nom des orthogroups ainsi que leurs RF normalisé
 
 import os
+import glob
 from ete3 import Tree
 
-
-reference_tree = "output/outputOf/Results*/Species_Tree/SpeciesTree_rooted.txt"
+ref_files = glob.glob("output/outputOf/Results*/Species_Tree/SpeciesTree_rooted.txt")
+if not ref_files: raise FileNotFoundError("Arbre de référence non trouvé")
+reference_tree = ref_files[0]
 gene_trees_dir = "output/iqtree/allTrees"
 output_file = "output/iqtree/rf_output/results_RF.tsv"
 

@@ -16,7 +16,7 @@ mkdir -p $rfFolder
 
 conda activate ./turtleProject
 
-for f in output/iqtree/allSpecies/*.treefile ; do
+for f in output/iqtree/allTrees/*.treefile ; do
     mv $f output/iqtree/allTrees
     echo $f "moved"
     done
