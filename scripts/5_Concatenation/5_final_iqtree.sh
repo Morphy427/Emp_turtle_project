@@ -6,20 +6,13 @@
 
 
 #Crée un nouvel arbre de gène à partir des meilleurs arbres d'espèces
-inputFile=../clean_output/concatenation/supermatrix.fasta
-partitionFile=../clean_output/concatenation/partitions.txt
-
-
+inputFile=output/concatenation/supermatrix.fasta
+partitionFile=output/concatenation/partitions.txt
 
 . /local/env/envconda.sh
 
 conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
 
 iqtree -T AUTO -s $inputFile -p $partitionFile -m MFP -B 1000 --prefix "finalTree"
-conda deactivate
 
-# # possible options:
-# -m TESTONLY
-# -m TEST
-# -quiet
-# ... 2> /dev/null
+conda deactivate
