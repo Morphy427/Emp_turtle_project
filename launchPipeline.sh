@@ -30,12 +30,8 @@ echo "Ajout des identifiants en attente avec l'ID :"$JOB_ADD_SPECIES_ID
 JOB_ORTHOFINDER=$(sbatch --parsable --dependency=afterok:$JOB_ADD_SPECIES_ID scripts/2_OrthoFinder/orthoFinder.sh)
 echo "Orthofinder en attente avec l'ID :"$JOB_ORTHOFINDER
 
-# Lancement script de récupération des groupes d'intérêts
-JOB_GROUP_OF_INTEREST=$(sbatch --parsable --dependency=afterok:$JOB_ORTHOFINDER scripts/3_Alignement/groupOfInterest.sh)
-echo "Recherche de groupes d'intérêts en attente avec l'ID :"$JOB_GROUP_OF_INTEREST
-
 # Lancement de l'alignement
-JOB_MAFFT=$(sbatch --parsable --dependency=afterok:$JOB_GROUP_OF_INTEREST scripts/3_Alignement/Alignement.sh)
+JOB_MAFFT=$(sbatch --parsable --dependency=afterok:$JOB_ORTHOFINDER scripts/3_Alignement/Alignement.sh)
 echo "Alignement en attente avec l'ID :"$JOB_MAFFT
 
 # Lancement du trimming des séquences
