@@ -1,8 +1,8 @@
 #! /bin/bash
-#SBATCH --job-name=renameSeq
+#SBATCH --job-name=renameExt
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=nicolas.vitry@etudiant.univ-rennes.fr
-#SBATCH -o logs/renameSeq.out
+#SBATCH -o logs/renameExt.log
 
 # Script to rename ".fna" file in ".fa" file
 

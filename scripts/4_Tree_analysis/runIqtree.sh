@@ -36,12 +36,14 @@ for f in $inputFolder/*.fasta; do
    }' "$f" && cp "$f" $outputFolder
 done
 
-
+echo "Début du premier iqtree sur tous les gènes"
 
 for f in $outputFolder*fasta; do
      ID=`basename $f .fasta`
      iqtree -T $THREADS -s "$outputFolder""$ID"".fasta" -m MFP --prefix $ID
      mv $ID* $outputFolderAll
 done
+
+echo "Fin du premier iqtree"
 
 conda deactivate

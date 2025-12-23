@@ -2,7 +2,7 @@
 #SBATCH --job-name=pipeline
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=nicolas.vitry@etudiant.univ-rennes.fr
-#SBATCH -o logs/pipelineLogs.out
+#SBATCH -o logs/pipelineLogs.log
 
 # Création de tous les répertoires utiles
 echo "Creation des répertoires utiles"

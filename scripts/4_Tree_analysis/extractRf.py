@@ -18,7 +18,6 @@ def extractRF(inputTSV):
 
 def writeList(listOfGenes, outputFile):
     with open(outputFile, 'w') as file:
-        file.write("Gene_tree\n")
         for id in listOfGenes:
             file.write(f"{id}\n")
 

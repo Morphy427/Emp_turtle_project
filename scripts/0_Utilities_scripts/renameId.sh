@@ -1,13 +1,13 @@
 #! /bin/bash
 #SBATCH --job-name=change_name
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=marina.vitre@etudiant.univ-rennes.fr
+#SBATCH --mail-user=nicolas.vitry@etudiant.univ-rennes.fr
 
 #Remodifie les nom des séquence fasta pour ne laisser que le nom de l'espèce
 
 
 INDIR=genomes
-OUTDIR=output/rename_alignedSeq
+OUTDIR=output/renamed_seq
 
 mkdir -p $OUTDIR
 

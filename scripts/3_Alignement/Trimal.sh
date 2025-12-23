@@ -2,7 +2,7 @@
 #SBATCH --job-name=Trimal
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=nicolas.vitry@etudiant.univ-rennes.fr
-#SBATCH -o logs/trimal.out
+#SBATCH -o logs/trimal.log
 
 . /local/env/envconda.sh
 
@@ -13,6 +13,7 @@ outputFolder=output/alignement/trimedSeq/
 mkdir -p $outputFolder
 
 echo "Début de l'ajustement des séquences"
+
 for f in $inputFolder/*.fasta ; do
 	ID=`basename $f .fasta`
     echo "traitement de :"$ID

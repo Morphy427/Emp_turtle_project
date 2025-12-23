@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=supermatrix
-#SBATCH -o logs/supermatrix2.log
+#SBATCH -o logs/supermatrix.log
 
 
 inputFolder=output/iqtree/alignements_markers_with_name_gene
@@ -14,6 +14,10 @@ mkdir -p $outputFolder
 
 conda activate ./turtleProject
 
+echo "Création du fichier de partitionnement et de la supermatrice"
+
 python createSupermatrix.py $inputFolder $outputFile $outputPartitions
 
 conda deactivate
+
+echo "Supermatrice et fichier de partitionnement créée"

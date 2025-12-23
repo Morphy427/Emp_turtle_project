@@ -13,6 +13,10 @@ partitionFile=output/concatenation/partitions.txt
 
 conda activate ./turtleProject
 
+echo "Création de l'arbre à partir de la supermatrice"
+
 iqtree -T AUTO -s $inputFile -p $partitionFile -m MFP -B 1000 --prefix "finalTree"
 
 conda deactivate
+
+echo "Arbre final créée"
