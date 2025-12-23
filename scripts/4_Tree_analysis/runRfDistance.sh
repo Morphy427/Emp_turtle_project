@@ -16,11 +16,6 @@ mkdir -p $rfFolder
 
 conda activate ./turtleProject
 
-for f in output/iqtree/allTrees/*.treefile ; do
-    mv $f output/iqtree/allTrees
-    echo $f "moved"
-    done
-
 python rfDistanceCompute.py
 python extractRf.py $inputTable $outputTable
 

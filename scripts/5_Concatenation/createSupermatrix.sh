@@ -12,7 +12,7 @@ mkdir -p $outputFolder
 
 . /local/env/envconda.sh
 
-conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
+conda activate ./turtleProject
 
 python createSupermatrix.py $inputFolder $outputFile $outputPartitions
 

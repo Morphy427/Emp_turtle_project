@@ -11,7 +11,7 @@ partitionFile=output/concatenation/partitions.txt
 
 . /local/env/envconda.sh
 
-conda activate /home/genouest/tp_emp25_41033/tp60421/turtleProject
+conda activate ./turtleProject
 
 iqtree -T AUTO -s $inputFile -p $partitionFile -m MFP -B 1000 --prefix "finalTree"
 

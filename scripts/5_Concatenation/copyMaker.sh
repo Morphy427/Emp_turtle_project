@@ -5,7 +5,7 @@
 #Permet de séparé dans un nouveau les orthogroupes que nous avons chois comme marqueurs après observation de la répartition des RF
 inputFolder=output/iqtree/allTrees
 outputFolder=output/iqtree/alignements_markers_with_name_gene
-listFile=$inputFolder/rf_output/RF_extracted.txt
+listFile=output/iqtree/rf_output/RF_extracted.txt
 
 mkdir -p $outputFolder
 
