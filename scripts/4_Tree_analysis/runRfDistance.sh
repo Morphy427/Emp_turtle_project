@@ -18,8 +18,8 @@ conda activate ./turtleProject
 
 echo "Début du calcul des scores RF"
 
-python rfDistanceCompute.py
-python extractRf.py $inputTable $outputTable
+python scripts/4_Tree_analysis/rfDistanceCompute.py
+python scripts/4_Tree_analysis/extractRf.py $inputTable $outputTable
 
 echo "Fin du calcul des scores RF"
 conda deactivate

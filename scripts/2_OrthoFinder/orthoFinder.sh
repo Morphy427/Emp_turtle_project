@@ -16,7 +16,7 @@ mkdir -p outputOf
 
 echo "Orthofinder lancée"
 
-orthofinder -t $threads -M dendroblast -S diamond -1 -X -o $outputfolder -f $inputfolder -d
+orthofinder -t $threads -M dendroblast -S diamond -1 -o $outputfolder -f $inputfolder -d
 
 echo "Orthofinder terminée"
 
