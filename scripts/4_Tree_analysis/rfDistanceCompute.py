@@ -14,7 +14,7 @@ output_file = "output/iqtree/rf_output/results_RF.tsv"
 
 
 ref_tree = Tree(reference_tree)
-gene_files = [f for f in os.listdir(gene_trees_dir)]
+gene_files = [f for f in os.listdir(gene_trees_dir) if f.endswith(".treefile")]
 
 
 out = open(output_file, 'w')
